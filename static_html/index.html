@@ -1,0 +1,38 @@
+<html>
+<head>
+
+</head>
+<body>
+<iframe id='mainContext' width='100%' height='100%' frameborder='0' scrolling = 'no' seamless='seamless'>
+</iframe>
+
+<script>
+
+var sitesToVisit = new Array(	'http://iesd.dmu.ac.uk/',
+                                'http://www.gridwatch.templar.co.uk/',
+				'http://smartspaces.dmu.ac.uk/',
+				'http://www.dynamicdemand.co.uk/grid.htm',
+				'http://reemain.imginternet.it',
+				'http://www.earth.org.uk/_gridCarbonIntensityGB.html',
+				'http://greenview.dmu.ac.uk/',
+				'http://iesd.dmu.ac.uk/~cascade',
+				'http://www.iesd.dmu.ac.uk/~adopt'
+				);
+var next = 0;
+changePage();
+window.setInterval(function(){changePage();},15000);
+
+
+function changePage()
+{
+document.getElementById("mainContext").src=sitesToVisit[next];
+next+=1;
+if (next >= sitesToVisit.length)
+{
+next = 0;
+}
+}
+
+</script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+body {
+	padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+}
+
+iframe {
+        margin: 0;
+        padding: 0;
+        border: none;
+        width: 100%;
+}
+
+#main_actions {
+	width:100%;
+	text-align:center;
+	float:none;
+	margin:0 auto;
+}
+
+#main_actions .btn {
+	margin-bottom:1em;
+}
+
+.navbar .nav > li > a {
+	color: #07362c;
+}
+.navbar .nav > li > a:focus,
+.navbar .nav > li > a:hover {
+	background-color: #118871 !important;
+	color: #fff !important;
+}
+
+a.active {
+    border:1px solid red;
+    background-color:rgb(255,144,144) !important;
+}
+
+footer {
+    text-align:center;
+}
+
+td,th {
+    width:25%;
+    text-align:left;
+}
