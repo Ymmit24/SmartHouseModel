@@ -23,7 +23,6 @@ import json # use json to encode data sent via websocket
 import random as r
 
 #default_app.push()
-
 app = Bottle()
 
 # Set up path to views
@@ -97,15 +96,15 @@ class localLEDwrapper(object):
         return retval
     
 devices= {"DownHeat":localLEDwrapper(0,0),
-          "UpHeat":localLEDwrapper(0,1),
-          "HotWater":localLEDwrapper(1,1),
-          "KitchenLight":localLEDwrapper(6,0),
-          "LivingLight":localLEDwrapper(5,0),          
-          "DiningLight":localLEDwrapper(7,0),
-          "Cooker":localLEDwrapper(1,0),
-          "Fridge":localLEDwrapper(2,0),
-          "Washer":localLEDwrapper(3,0),
-          "TV":localLEDwrapper(4,0),
+          "Cooker":  localLEDwrapper(1, 0),
+          "Fridge":  localLEDwrapper(2, 0),
+          "Washer":  localLEDwrapper(3, 0),
+          "TV":      localLEDwrapper(4, 0),
+          "LivingLight": localLEDwrapper(5, 0),
+          "KitchenLight":localLEDwrapper(6, 0),
+          "DiningLight": localLEDwrapper(7, 0),
+          "UpHeat":   localLEDwrapper(0,1),
+          "HotWater": localLEDwrapper(1,1),
           "BathroomLight":localLEDwrapper(5,1),
           "Bed1Light":localLEDwrapper(7,1),
           "Bed2Light":localLEDwrapper(6,1),
