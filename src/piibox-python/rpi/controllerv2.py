@@ -1,6 +1,6 @@
-# ENGD3000 - Final Year Project - 2021/2022
+# ENGD3000 - Final Year Project - 2020/2021
 # Supervisor: Richard Snape
-# Student: Timilehin Olusa
+# Student: Henrik Nyby
 
 # Import libraries
 import os
@@ -97,7 +97,7 @@ class localLEDwrapper(object):
                 board = 0
             self.led = led_number
             self.board = board
-            self.board_object = boards[board] ##NOTE TO HENRIK:RICHARD ADDED 2021_03_19 @ 19:45 to fix the state reading
+            self.board_object = boards[board] ## NOTE TO HENRIK : RICHARD ADDED 2021_03_19 @ 19:45 to fix the state reading
 
     def turn_on(self):
         try:
