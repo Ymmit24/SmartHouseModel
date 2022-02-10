@@ -51,6 +51,22 @@
                              netLoad = (Math.round(1000 *parseFloat(parsedMsg.houseLoad)))/1000;
                              document.getElementById("netLoad").innerHTML = netLoad;
                          }
+                         if (parsedMsg.kitchenTemp)
+                         {
+                            document.getElementById("kitchenTemp").innerHTML = parseFloat(parsedMsg.kitchenTemp);
+                         }
+                         if (parsedMsg.dinningTemp)
+                         {
+                            document.getElementById("dinningTemp").innerHTML = parseFloat(parsedMsg.dinningTemp);
+                         }
+                         if (parsedMsg.bathroomTemp)
+                         {
+                            document.getElementById("bathroomTemp").innerHTML = parseFloat(parsedMsg.bathroomTemp);
+                         }
+                         if (parsedMsg.bedroomTemp)
+                         {
+                            document.getElementById("bedroomTemp").innerHTML = parseFloat(parsedMsg.bedroomTemp);
+                         }
                     }
 
                     //socket.onclose = function(){
