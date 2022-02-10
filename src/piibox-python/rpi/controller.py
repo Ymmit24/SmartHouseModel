@@ -135,7 +135,8 @@ def home():
 
     return dict(device0 = UpHeatState, device1 = DownHeatState, device2 = KitchenLightState, device3 = FridgeState,
                 device4 = CookerState, device5 = LivingLightState, device6 = TVState, device7 = DiningLightState,
-                device8 = BathroomLightState, device9 = Bed1State, device10 = Bed2State, device11 = Bed3State, device12 = HotWaterState,deviceAuto=auto_mode)
+                device8 = BathroomLightState, device9 = Bed1State, device10 = Bed2State, device11 = Bed3State,
+                device12 = HotWaterState,deviceAuto=auto_mode)
 
 @app.route('/action')
 @view('home')
@@ -207,7 +208,7 @@ def handle_websocket():
     wsock = request.environ.get('wsgi.websocket')
     if not wsock:
         log('Expected WebSocket request.  Got something else on /webwocket/...')
-        abort(400, 'Expected WebSocket request.')
+        abort(400, 'Expected WebSocket request.') #playing around
 
     while True:
         try:        
