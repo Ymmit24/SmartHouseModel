@@ -181,6 +181,7 @@ def home():
     Bed3State = devices["Bed3Light"].current()
     SolarPVState = devices["SolarPV"].current()
     BatteryState = devices["BatteryStorage"].current()
+    log('All except new accessed')
     SupplyState = devices["HomeSupplyRelay"].current()   #17/02
     #AddOut0State = devices["AdditionalOutput0"].current()
     #AddOut1State = devices["AdditionalOutput1"].current()
