@@ -149,9 +149,6 @@
 <td style="text-align:left">
   <a class="btn {{ 'active' if device2 == 1 else ''}}" href="/action?device=KitchenLight&value=1">On</a> |
   <a class="btn {{ 'active' if device2 == 0 else ''}}" href="/action?device=KitchenLight&value=0">Off</a></td>
-<td style="text-align:left">
-  <a class="btn {{ 'active' if device3 == 1 else ''}}" href="/action?device=Fridge&value=1">On</a> |
-  <a class="btn {{ 'active' if device3 == 0 else ''}}" href="/action?device=Fridge&value=0">Off</a></td>
   <td style="text-align:left">
   <a class="btn {{ 'active' if device4 == 1 else ''}}" href="/action?device=Cooker&value=1">On</a> |
   <a class="btn {{ 'active' if device4 == 0 else ''}}" href="/action?device=Cooker&value=0">Off</a></td>

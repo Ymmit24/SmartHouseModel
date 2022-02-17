@@ -192,11 +192,13 @@ def home():
     #AddOut6State = devices["AdditionalOutput6"].current()
     #AddOut7State = devices["AdditionalOutput7"].current()
     log('All current states read')
-    return dict(device0 = UpHeatState, device1 = DownHeatState, device2 = KitchenLightState,
+    return_values = dict(device0 = UpHeatState, device1 = DownHeatState, device2 = KitchenLightState,
                 device4 = CookerState, device5 = LivingLightState, device6 = TVState, device7 = DiningLightState,
                 device8 = BathroomLightState, device9 = Bed1State, device10 = Bed2State, device11 = Bed3State,
                 device12 = HotWaterState, device13 = SolarPVState, device14 = BatteryState, deviceAuto=auto_mode,
-                deviceAllOff=all_off, device15=SupplyState) #17/02
+                deviceAllOff=all_off, device15=SupplyState)
+    log(return_values)
+    return return_values #17/02
                 #device15 = AddOutState0, device16 = AddOutState1, device17 = AddOutState2, device18 = AddOutState3)
                 #device19 = AddOutState4, device20 = AddOutState5, device21 = AddOutState6, device22 = AddOutState7)
 
