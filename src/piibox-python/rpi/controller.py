@@ -132,8 +132,8 @@ class localLEDwrapper(object):
 # Define all home devices, (improvements to be made, modular coding)
 devices= {"DownHeat":localLEDwrapper(0,0),
           "Dummy1":localLEDwrapper(1,0),
-          "Dummy2":localLEDwrapper(2,0),
-          "Dummy3":localLEDwrapper(3,0),
+  #        "Dummy2":localLEDwrapper(2,0),
+  #        "Dummy3":localLEDwrapper(3,0),
           "HomeSupplyRelay":localLEDwrapper(4,0),
           "LivingLight":localLEDwrapper(5,0),
           "KitchenLight":localLEDwrapper(6,0),

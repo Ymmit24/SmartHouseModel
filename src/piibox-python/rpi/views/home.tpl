@@ -72,7 +72,7 @@
 <!-- Comment here -->
 <h3>Appliances</h3>
 <table style="width:100%;margin-top:2em;margin-bottom:2em;padding:1em;">
-<tr><th>HomeSupply</th><th>Dummy1</th><th>Kettle</th><th>Dishwasher</th></th></tr>
+<tr><th>HomeSupply</th><th>Dummy1</th></tr>
 <tr>
 <td style="text-align:left">
   <a class="btn {{ 'active' if device13 == 1 else ''}}" href="/action?device=HomeSupply&value=1">On</a> |
