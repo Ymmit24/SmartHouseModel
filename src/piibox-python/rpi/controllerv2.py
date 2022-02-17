@@ -146,7 +146,7 @@ devices= {"DownHeat":localLEDwrapper(0,0),
           "BathroomLight":localLEDwrapper(5,1),
           "Bed2Light":localLEDwrapper(6,1),
           "Bed1Light":localLEDwrapper(7,1),
-          "HomeSupplyRelay": localLEDwrapper(0,2),	#HomeSupplyRelay
+          "HomeSupplyRelay": localLEDwrapper(0,2)	#HomeSupplyRelay
           #"AdditionalOutput1": localLEDwrapper(1,2),	#KitchenFreezer
           #"AdditionalOutput2": localLEDwrapper(2,2),   #KitchenPowerPoint
           #"AdditionalOutput3": localLEDwrapper(3,2),   #BedroomPowerPoint
