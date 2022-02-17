@@ -156,10 +156,10 @@
 <td style="text-align:left">
   <a class="btn {{ 'active' if device4 == 1 else ''}}" href="/action?device=LivingLight&value=1">On</a> |
   <a class="btn {{ 'active' if device4 == 0 else ''}}" href="/action?device=LivingLight&value=0">Off</a></td>
-<!-- <td style="text-align:left">
-  <a class="btn {{ 'active' if deviceX == 1 else ''}}" href="/action?device=TV&value=1">On</a> |
-  <a class="btn {{ 'active' if deviceX == 0 else ''}}" href="/action?device=TV&value=0">Off</a></td>
--->
+<td style="text-align:left">
+  <a class="btn {{ 'active' if device13 == 1 else ''}}" href="/action?device=TV&value=1">On</a> |
+  <a class="btn {{ 'active' if device13 == 0 else ''}}" href="/action?device=TV&value=0">Off</a></td>
+
 </tr>
 </table>
 <!-- -->
