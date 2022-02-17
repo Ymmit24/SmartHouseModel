@@ -180,6 +180,7 @@ def home():
     Bed3State = devices["Bed3Light"].current()
     SolarPVState = devices["SolarPV"].current()
     BatteryState = devices["BatteryStorage"].current()
+    SupplyState = devices["HomeSupply"].current()   #17/02
     #AddOut0State = devices["AdditionalOutput0"].current()
     #AddOut1State = devices["AdditionalOutput1"].current()
     #AddOut2State = devices["AdditionalOutput2"].current()
@@ -193,7 +194,7 @@ def home():
                 device4 = CookerState, device5 = LivingLightState, device6 = TVState, device7 = DiningLightState,
                 device8 = BathroomLightState, device9 = Bed1State, device10 = Bed2State, device11 = Bed3State,
                 device12 = HotWaterState, device13 = SolarPVState, device14 = BatteryState, deviceAuto=auto_mode,
-                deviceAllOff=all_off)
+                deviceAllOff=all_off, device15 = SupplyState) #17/02
                 #device15 = AddOutState0, device16 = AddOutState1, device17 = AddOutState2, device18 = AddOutState3)
                 #device19 = AddOutState4, device20 = AddOutState5, device21 = AddOutState6, device22 = AddOutState7)
 
