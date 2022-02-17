@@ -78,9 +78,6 @@
 <tr><th>Fridge</th><th>Cooker</th><th>Kettle</th><th>Dishwasher</th></th></tr>
 <tr>
 <td style="text-align:left">
-  <a class="btn {{ 'active' if device3 == 1 else ''}}" href="/action?device=Fridge&value=1">On</a> |
-  <a class="btn {{ 'active' if device3 == 0 else ''}}" href="/action?device=Fridge&value=0">Off</a></td>
-<td style="text-align:left">
   <a class="btn {{ 'active' if device15 == 1 else ''}}" href="/action?device=HomeSupply&value=1">On</a> |
   <a class="btn {{ 'active' if device15 == 0 else ''}}" href="/action?device=HomeSupply&value=0">Off</a></td>
 <td style="text-align:left">

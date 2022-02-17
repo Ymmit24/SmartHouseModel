@@ -132,7 +132,7 @@ class localLEDwrapper(object):
 # Define all home devices, (improvements to be made, modular coding)
 devices= {"DownHeat":localLEDwrapper(0,0),
           "Cooker":localLEDwrapper(1,0),
-          "Fridge":localLEDwrapper(2,0),
+          "HomeSupplyRelay":localLEDwrapper(2,0),
           "Washer":localLEDwrapper(3,0),
           "TV":localLEDwrapper(4,0),
           "LivingLight":localLEDwrapper(5,0),
@@ -170,7 +170,7 @@ def home():
     DownHeatState = devices["DownHeat"].current()
     HotWaterState = devices["HotWater"].current()
     KitchenLightState = devices["KitchenLight"].current()
-    FridgeState = devices["Fridge"].current()
+    #FridgeState = devices["Fridge"].current()
     CookerState = devices["Cooker"].current()
     LivingLightState = devices["LivingLight"].current()
     TVState = devices["TV"].current()
@@ -192,7 +192,7 @@ def home():
     #AddOut6State = devices["AdditionalOutput6"].current()
     #AddOut7State = devices["AdditionalOutput7"].current()
     log('All current states read')
-    return dict(device0 = UpHeatState, device1 = DownHeatState, device2 = KitchenLightState, device3 = FridgeState,
+    return dict(device0 = UpHeatState, device1 = DownHeatState, device2 = KitchenLightState,
                 device4 = CookerState, device5 = LivingLightState, device6 = TVState, device7 = DiningLightState,
                 device8 = BathroomLightState, device9 = Bed1State, device10 = Bed2State, device11 = Bed3State,
                 device12 = HotWaterState, device13 = SolarPVState, device14 = BatteryState, deviceAuto=auto_mode,
