@@ -13,11 +13,12 @@
   <a class="btn {{ 'active' if deviceAllOff == 1 else ''}}" href="/action?device=AllOff&value=1">On</a> |
   <a class="btn {{ 'active' if deviceAllOff == 0 else ''}}" href="/action?device=AllOff&value=0">Off</a></td>
 <td style="text-align:left">
-  <a class="btn {{ 'active' if deviceAllOff == 1 else ''}}" href="/action?device=AllOff&value=1">On</a> |
-  <a class="btn {{ 'active' if deviceAllOff == 0 else ''}}" href="/action?device=AllOff&value=0">Off</a></td>
+  <a class="btn {{ 'active' if device13 == 1 else ''}}" href="/action?device=SolarPV&value=1">On</a> |
+  <a class="btn {{ 'active' if device13 == 0 else ''}}" href="/action?device=SolarPV&value=0">Off</a></td>
 <td style="text-align:left">
-  <a class="btn {{ 'active' if deviceAllOff == 1 else ''}}" href="/action?device=AllOff&value=1">On</a> |
-  <a class="btn {{ 'active' if deviceAllOff == 0 else ''}}" href="/action?device=AllOff&value=0">Off</a></td>
+  <a class="btn {{ 'active' if device14 == 1 else ''}}" href="/action?device=BatteryStorage&value=1">On</a> |
+  <a class="btn {{ 'active' if device14 == 0 else ''}}" href="/action?device=BatteryStorage&value=0">Off</a></td>
+
 
 <!-- Preparation for additional energy modes
 <td style="text-align:left">
@@ -84,7 +85,7 @@
 <!-- Comment here -->
 <h3>Appliances</h3>
 <table style="width:100%;margin-top:2em;margin-bottom:2em;padding:1em;">
-<tr><th>Fridge</th><th>Cooker</th><th>Kettle</th><th>Dishwasher</th></th></tr>
+<tr><th>HomeSupply</th><th>Cooker</th><th>Kettle</th><th>Dishwasher</th></th></tr>
 <tr>
 <td style="text-align:left">
   <a class="btn {{ 'active' if device15 == 1 else ''}}" href="/action?device=HomeSupply&value=1">On</a> |
