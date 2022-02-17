@@ -131,29 +131,21 @@ class localLEDwrapper(object):
 
 # Define all home devices, (improvements to be made, modular coding)
 devices= {"DownHeat":localLEDwrapper(0,0),
-          "Cooker":localLEDwrapper(1,0),
-          "HomeSupplyRelay":localLEDwrapper(2,0),
-          "Washer":localLEDwrapper(3,0),
-          "TV":localLEDwrapper(4,0),
+          "Dummy1":localLEDwrapper(1,0),
+          "Dummy2":localLEDwrapper(2,0),
+          "Dummy3":localLEDwrapper(3,0),
+          "HomeSupplyRelay":localLEDwrapper(4,0),
           "LivingLight":localLEDwrapper(5,0),
           "KitchenLight":localLEDwrapper(6,0),
           "DiningLight":localLEDwrapper(7,0),
           "UpHeat":localLEDwrapper(0,1),
           "HotWater":localLEDwrapper(1,1),
-          "BatteryStorage": localLEDwrapper(2,1),
+          "Grid": localLEDwrapper(2,1),
           "SolarPV": localLEDwrapper(3,1),
           "Bed3Light":localLEDwrapper(4,1),
           "BathroomLight":localLEDwrapper(5,1),
           "Bed2Light":localLEDwrapper(6,1),
           "Bed1Light":localLEDwrapper(7,1)
-          #"HomeSupplyRelay": localLEDwrapper(0,2)	#HomeSupplyRelay
-          #"AdditionalOutput1": localLEDwrapper(1,2),	#KitchenFreezer
-          #"AdditionalOutput2": localLEDwrapper(2,2),   #KitchenPowerPoint
-          #"AdditionalOutput3": localLEDwrapper(3,2),   #BedroomPowerPoint
-          #"AdditionalOutput4": localLEDwrapper(4,2),	#LivingRoomPowerPoint
-          #"AdditionalOutput5": localLEDwrapper(5,2),	#DinningPowerPoint
-          #"AdditionalOutput6": localLEDwrapper(6,2),	#GardenLight
-          #"AdditionalOutput7": localLEDwrapper(7,2)	#GardenSprinkler
           }
 
 # Set up static file handler
@@ -170,37 +162,25 @@ def home():
     DownHeatState = devices["DownHeat"].current()
     HotWaterState = devices["HotWater"].current()
     KitchenLightState = devices["KitchenLight"].current()
-    #FridgeState = devices["Fridge"].current()
-    CookerState = devices["Cooker"].current()
     LivingLightState = devices["LivingLight"].current()
-    TVState = devices["TV"].current()
+    Dummy1State = devices["Dummy1"].current()
     DiningLightState = devices["DiningLight"].current()
     BathroomLightState = devices["BathroomLight"].current()
     Bed1State = devices["Bed1Light"].current()
     Bed2State = devices["Bed2Light"].current()
     Bed3State = devices["Bed3Light"].current()
     SolarPVState = devices["SolarPV"].current()
-    BatteryState = devices["BatteryStorage"].current()
+    GridState = devices["Grid"].current()
     log('All except new accessed')
     SupplyState = devices["HomeSupplyRelay"].current()   #17/02
-    #AddOut0State = devices["AdditionalOutput0"].current()
-    #AddOut1State = devices["AdditionalOutput1"].current()
-    #AddOut2State = devices["AdditionalOutput2"].current()
-    #AddOut3State = devices["AdditionalOutput3"].current()
-    #AddOut4State = devices["AdditionalOutput4"].current()
-    #AddOut5State = devices["AdditionalOutput5"].current()
-    #AddOut6State = devices["AdditionalOutput6"].current()
-    #AddOut7State = devices["AdditionalOutput7"].current()
     log('All current states read')
     return_values = dict(device0 = UpHeatState, device1 = DownHeatState, device2 = KitchenLightState,
-                device4 = CookerState, device5 = LivingLightState, device6 = TVState, device7 = DiningLightState,
-                device8 = BathroomLightState, device9 = Bed1State, device10 = Bed2State, device11 = Bed3State,
-                device12 = HotWaterState, device13 = SolarPVState, device14 = BatteryState, deviceAuto=auto_mode,
-                deviceAllOff=all_off, device15=SupplyState)
+                device3 = Dummy1State, device4 = LivingLightState, device5 = DiningLightState,
+                device6 = BathroomLightState, device7 = Bed1State, device8 = Bed2State, device9 = Bed3State,
+                device10 = HotWaterState, device11 = SolarPVState, device12 = GridState, deviceAuto=auto_mode,
+                deviceAllOff=all_off, device13=SupplyState)
     log(return_values)
-    return return_values #17/02
-                #device15 = AddOutState0, device16 = AddOutState1, device17 = AddOutState2, device18 = AddOutState3)
-                #device19 = AddOutState4, device20 = AddOutState5, device21 = AddOutState6, device22 = AddOutState7)
+    return return_values    #17/02
 
 @app.route('/action')
 @view('home')

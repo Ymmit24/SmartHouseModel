@@ -9,29 +9,16 @@
 <td style="text-align:left">
   <a class="btn {{ 'active' if deviceAllOff == 1 else ''}}" href="/action?device=AllOff&value=1">On</a> |
   <a class="btn {{ 'active' if deviceAllOff == 0 else ''}}" href="/action?device=AllOff&value=0">Off</a></td>
+ <!-- Energy modes -->
 <td style="text-align:left">
   <a class="btn {{ 'active' if deviceAllOff == 1 else ''}}" href="/action?device=AllOff&value=1">On</a> |
   <a class="btn {{ 'active' if deviceAllOff == 0 else ''}}" href="/action?device=AllOff&value=0">Off</a></td>
 <td style="text-align:left">
-  <a class="btn {{ 'active' if device13 == 1 else ''}}" href="/action?device=SolarPV&value=1">On</a> |
-  <a class="btn {{ 'active' if device13 == 0 else ''}}" href="/action?device=SolarPV&value=0">Off</a></td>
+  <a class="btn {{ 'active' if device11 == 1 else ''}}" href="/action?device=SolarPV&value=1">On</a> |
+  <a class="btn {{ 'active' if device11 == 0 else ''}}" href="/action?device=SolarPV&value=0">Off</a></td>
 <td style="text-align:left">
-  <a class="btn {{ 'active' if device14 == 1 else ''}}" href="/action?device=BatteryStorage&value=1">On</a> |
-  <a class="btn {{ 'active' if device14 == 0 else ''}}" href="/action?device=BatteryStorage&value=0">Off</a></td>
-
-
-<!-- Preparation for additional energy modes
-<td style="text-align:left">
-  <a class="btn {{ 'active' if deviceAllOff == 1 else ''}}" href="/action?device=AllOff&value=1">On</a> |
-  <a class="btn {{ 'active' if deviceAllOff == 0 else ''}}" href="/action?device=AllOff&value=0">Off</a></td>
-<td style="text-align:left">
-  <a class="btn {{ 'active' if deviceAllOff == 1 else ''}}" href="/action?device=AllOff&value=1">On</a> |
-  <a class="btn {{ 'active' if deviceAllOff == 0 else ''}}" href="/action?device=AllOff&value=0">Off</a></td>
-<td style="text-align:left">
-  <a class="btn {{ 'active' if deviceAllOff == 1 else ''}}" href="/action?device=AllOff&value=1">On</a> |
-  <a class="btn {{ 'active' if deviceAllOff == 0 else ''}}" href="/action?device=AllOff&value=0">Off</a></td>
--->
-
+  <a class="btn {{ 'active' if device12 == 1 else ''}}" href="/action?device=Grid&value=1">On</a> |
+  <a class="btn {{ 'active' if device12 == 0 else ''}}" href="/action?device=Grid&value=0">Off</a></td>
 </tr>
 </table>
 
@@ -77,29 +64,24 @@
   <a class="btn {{ 'active' if device0 == 1 else ''}}" href="/action?device=UpHeat&value=1">On</a> |
   <a class="btn {{ 'active' if device0 == 0 else ''}}" href="/action?device=UpHeat&value=0">Off</a></td>
 <td style="text-align:left">
-  <a class="btn {{ 'active' if device12 == 1 else ''}}" href="/action?device=HotWater&value=1">On</a> |
-  <a class="btn {{ 'active' if device12 == 0 else ''}}" href="/action?device=HotWater&value=0">Off</a></td>
+  <a class="btn {{ 'active' if device10 == 1 else ''}}" href="/action?device=HotWater&value=1">On</a> |
+  <a class="btn {{ 'active' if device10 == 0 else ''}}" href="/action?device=HotWater&value=0">Off</a></td>
 </tr>
 </table>
 
 <!-- Comment here -->
 <h3>Appliances</h3>
 <table style="width:100%;margin-top:2em;margin-bottom:2em;padding:1em;">
-<tr><th>HomeSupply</th><th>Cooker</th><th>Kettle</th><th>Dishwasher</th></th></tr>
+<tr><th>HomeSupply</th><th>Dummy1</th><th>Kettle</th><th>Dishwasher</th></th></tr>
 <tr>
 <td style="text-align:left">
-  <a class="btn {{ 'active' if device15 == 1 else ''}}" href="/action?device=HomeSupply&value=1">On</a> |
-  <a class="btn {{ 'active' if device15 == 0 else ''}}" href="/action?device=HomeSupply&value=0">Off</a></td>
+  <a class="btn {{ 'active' if device13 == 1 else ''}}" href="/action?device=HomeSupply&value=1">On</a> |
+  <a class="btn {{ 'active' if device13 == 0 else ''}}" href="/action?device=HomeSupply&value=0">Off</a></td>
 <td style="text-align:left">
-  <a class="btn {{ 'active' if device4 == 1 else ''}}" href="/action?device=Cooker&value=1">On</a> |
-  <a class="btn {{ 'active' if device4 == 0 else ''}}" href="/action?device=Cooker&value=0">Off</a></td>
-<td style="text-align:left">
-  <a class="btn {{ 'active' if device13 == 1 else ''}}" href="/action?device=SolarPV&value=1">On</a> |
-  <a class="btn {{ 'active' if device13 == 0 else ''}}" href="/action?device=SolarPV&value=0">Off</a></td>
-<td style="text-align:left">
-  <a class="btn {{ 'active' if device14 == 1 else ''}}" href="/action?device=BatteryStorage&value=1">On</a> |
-  <a class="btn {{ 'active' if device14 == 0 else ''}}" href="/action?device=BatteryStorage&value=0">Off</a></td>
+  <a class="btn {{ 'active' if device3 == 1 else ''}}" href="/action?device=Dummy1&value=1">On</a> |
+  <a class="btn {{ 'active' if device3 == 0 else ''}}" href="/action?device=Dummy1&value=0">Off</a></td>
 </tr>
+
 <!--Comment here  -->
 
 </table>
@@ -121,17 +103,17 @@
 <tr><th>Master Bedroom</th><th>Bedroom 2</th><th>Bedroom 3</th><th>Bathroom</th></tr>
 <tr>
 <td style="text-align:left">
-  <a class="btn {{ 'active' if device9 == 1 else ''}}" href="/action?device=Bed1Light&value=1">On</a> |
-  <a class="btn {{ 'active' if device9 == 0 else ''}}" href="/action?device=Bed1Light&value=0">Off</a></td> 
+  <a class="btn {{ 'active' if device7 == 1 else ''}}" href="/action?device=Bed1Light&value=1">On</a> |
+  <a class="btn {{ 'active' if device7 == 0 else ''}}" href="/action?device=Bed1Light&value=0">Off</a></td>
 <td style="text-align:left">
-  <a class="btn {{ 'active' if device10 == 1 else ''}}" href="/action?device=Bed2Light&value=1">On</a> |
-  <a class="btn {{ 'active' if device10 == 0 else ''}}" href="/action?device=Bed2Light&value=0">Off</a></td>
+  <a class="btn {{ 'active' if device8 == 1 else ''}}" href="/action?device=Bed2Light&value=1">On</a> |
+  <a class="btn {{ 'active' if device8 == 0 else ''}}" href="/action?device=Bed2Light&value=0">Off</a></td>
 <td style="text-align:left">
-  <a class="btn {{ 'active' if device11 == 1 else ''}}" href="/action?device=Bed3Light&value=1">On</a> |
-  <a class="btn {{ 'active' if device11 == 0 else ''}}" href="/action?device=Bed3Light&value=0">Off</a></td>
+  <a class="btn {{ 'active' if device9 == 1 else ''}}" href="/action?device=Bed3Light&value=1">On</a> |
+  <a class="btn {{ 'active' if device9 == 0 else ''}}" href="/action?device=Bed3Light&value=0">Off</a></td>
 <td style="text-align:left">
-  <a class="btn {{ 'active' if device8 == 1 else ''}}" href="/action?device=BathroomLight&value=1">On</a> |
-  <a class="btn {{ 'active' if device8 == 0 else ''}}" href="/action?device=BathroomLight&value=0">Off</a></td>
+  <a class="btn {{ 'active' if device6 == 1 else ''}}" href="/action?device=BathroomLight&value=1">On</a> |
+  <a class="btn {{ 'active' if device6 == 0 else ''}}" href="/action?device=BathroomLight&value=0">Off</a></td>
 </tr>
 </table>   
 
@@ -139,11 +121,11 @@
 <tr><th>Living Room</th><th>Dining Room</th><th>Kitchen</th><th>&nbsp;</th></tr>
 <tr>
 <td style="text-align:left">
-  <a class="btn {{ 'active' if device5 == 1 else ''}}" href="/action?device=LivingLight&value=1">On</a> |
-  <a class="btn {{ 'active' if device5 == 0 else ''}}" href="/action?device=LivingLight&value=0">Off</a></td>
+  <a class="btn {{ 'active' if device4 == 1 else ''}}" href="/action?device=LivingLight&value=1">On</a> |
+  <a class="btn {{ 'active' if device4 == 0 else ''}}" href="/action?device=LivingLight&value=0">Off</a></td>
 <td style="text-align:left">
-  <a class="btn {{ 'active' if device7 == 1 else ''}}" href="/action?device=DiningLight&value=1">On</a> |
-  <a class="btn {{ 'active' if device7 == 0 else ''}}" href="/action?device=DiningLight&value=0">Off</a></td>
+  <a class="btn {{ 'active' if device5 == 1 else ''}}" href="/action?device=DiningLight&value=1">On</a> |
+  <a class="btn {{ 'active' if device5 == 0 else ''}}" href="/action?device=DiningLight&value=0">Off</a></td>
 <td style="text-align:left">
   <a class="btn {{ 'active' if device2 == 1 else ''}}" href="/action?device=KitchenLight&value=1">On</a> |
   <a class="btn {{ 'active' if device2 == 0 else ''}}" href="/action?device=KitchenLight&value=0">Off</a></td>
@@ -151,7 +133,7 @@
   </tr>
 </table>
    
-<!-- Comment here
+<!-- Comment here for kitchen devices
 <h3>Kitchen</h3>
 <table style="width:100%;margin-top:2em;margin-bottom:2em;padding:1em;">
 <tr><th>Light</th><th>Fridge</th><th>Cooker</th></tr>      
@@ -166,24 +148,17 @@
 </table>
 -->
 
-<!-- Comment here -->
+<!-- Comment here for living room devices -->
 <h3>Living Room</h3>
 <table style="width:100%;margin-top:2em;margin-bottom:2em;padding:1em;">
-<tr><th>Light</th><th>TV</th> <!-- <th>SolarPV</th><th>BatteryStorage</th> --></tr>      
+<tr><th>Light</th><th>Extra</th></tr>
 <tr>
 <td style="text-align:left">
-  <a class="btn {{ 'active' if device5 == 1 else ''}}" href="/action?device=LivingLight&value=1">On</a> |
-  <a class="btn {{ 'active' if device5 == 0 else ''}}" href="/action?device=LivingLight&value=0">Off</a></td>
-<td style="text-align:left">
-  <a class="btn {{ 'active' if device6 == 1 else ''}}" href="/action?device=TV&value=1">On</a> |
-  <a class="btn {{ 'active' if device6 == 0 else ''}}" href="/action?device=TV&value=0">Off</a></td>
-<!--
-<td style="text-align:left">
-  <a class="btn {{ 'active' if device13 == 1 else ''}}" href="/action?device=SolarPV&value=1">On</a> |
-  <a class="btn {{ 'active' if device13 == 0 else ''}}" href="/action?device=SolarPV&value=0">Off</a></td>
-<td style="text-align:left">
-  <a class="btn {{ 'active' if device14 == 1 else ''}}" href="/action?device=BatteryStorage&value=1">On</a> |
-  <a class="btn {{ 'active' if device14 == 0 else ''}}" href="/action?device=BatteryStorage&value=0">Off</a></td>
+  <a class="btn {{ 'active' if device4 == 1 else ''}}" href="/action?device=LivingLight&value=1">On</a> |
+  <a class="btn {{ 'active' if device4 == 0 else ''}}" href="/action?device=LivingLight&value=0">Off</a></td>
+<!-- <td style="text-align:left">
+  <a class="btn {{ 'active' if deviceX == 1 else ''}}" href="/action?device=TV&value=1">On</a> |
+  <a class="btn {{ 'active' if deviceX == 0 else ''}}" href="/action?device=TV&value=0">Off</a></td>
 -->
 </tr>
 </table>
