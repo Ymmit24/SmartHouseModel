@@ -9,6 +9,15 @@
 <td style="text-align:left">
   <a class="btn {{ 'active' if deviceAllOff == 1 else ''}}" href="/action?device=AllOff&value=1">On</a> |
   <a class="btn {{ 'active' if deviceAllOff == 0 else ''}}" href="/action?device=AllOff&value=0">Off</a></td>
+<td style="text-align:left">
+  <a class="btn {{ 'active' if deviceAllOff == 1 else ''}}" href="/action?device=AllOff&value=1">On</a> |
+  <a class="btn {{ 'active' if deviceAllOff == 0 else ''}}" href="/action?device=AllOff&value=0">Off</a></td>
+<td style="text-align:left">
+  <a class="btn {{ 'active' if deviceAllOff == 1 else ''}}" href="/action?device=AllOff&value=1">On</a> |
+  <a class="btn {{ 'active' if deviceAllOff == 0 else ''}}" href="/action?device=AllOff&value=0">Off</a></td>
+<td style="text-align:left">
+  <a class="btn {{ 'active' if deviceAllOff == 1 else ''}}" href="/action?device=AllOff&value=1">On</a> |
+  <a class="btn {{ 'active' if deviceAllOff == 0 else ''}}" href="/action?device=AllOff&value=0">Off</a></td>
 
 <!-- Preparation for additional energy modes
 <td style="text-align:left">
