@@ -146,7 +146,7 @@ devices= {"DownHeat":localLEDwrapper(0,0),
           "BathroomLight":localLEDwrapper(5,1),
           "Bed2Light":localLEDwrapper(6,1),
           "Bed1Light":localLEDwrapper(7,1),
-          #"AdditionalOutput0": localLEDwrapper(0,2),	#KitchenKetttle
+          "HomeSupplyRelay": localLEDwrapper(0,2),	#HomeSupplyRelay
           #"AdditionalOutput1": localLEDwrapper(1,2),	#KitchenFreezer
           #"AdditionalOutput2": localLEDwrapper(2,2),   #KitchenPowerPoint
           #"AdditionalOutput3": localLEDwrapper(3,2),   #BedroomPowerPoint
@@ -180,7 +180,7 @@ def home():
     Bed3State = devices["Bed3Light"].current()
     SolarPVState = devices["SolarPV"].current()
     BatteryState = devices["BatteryStorage"].current()
-    SupplyState = devices["HomeSupply"].current()   #17/02
+    SupplyState = devices["HomeSupplyRelay"].current()   #17/02
     #AddOut0State = devices["AdditionalOutput0"].current()
     #AddOut1State = devices["AdditionalOutput1"].current()
     #AddOut2State = devices["AdditionalOutput2"].current()
