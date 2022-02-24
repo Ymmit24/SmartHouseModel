@@ -388,7 +388,7 @@ def getTempFromVoltsTwo(voltage):
     return round(retTemp,1)
 
 def getCurrentFromVolts(voltage):
-     calibrationOffset = 0.0232
+    calibrationOffset = 0.0232
      log('can read calibration')
     if debug_level==DEBUG:
         log("Raw detected voltage:" + str( voltage))
