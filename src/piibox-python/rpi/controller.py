@@ -306,9 +306,9 @@ def handle_websocket():
     while True:
         try:
             if adc:
-                houseLoad = 12 * getCurrentFromVolts(adc.readVoltage(1),0.0232)
+                houseLoad = 12 * getCurrentFromVolts(adc.readVoltage(1))
                 intTemp = getTempFromVolts(adc.readVoltage(2))
-                solarFeed = 12 * getCurrentFromVolts(adc.readVoltage(4),1.2)
+                solarFeed = 12 * getCurrentFromVolts(adc.readVoltage(4))
                 extTemp =  getTempFromVoltsTwo(adc.readVoltage(3))
                 kitchenTemp =  getTempFromMilliVolts(adc.readVoltage(5))
                 dinningTemp =  getTempFromMilliVolts(adc.readVoltage(6))
@@ -383,8 +383,8 @@ def getTempFromVoltsTwo(voltage):
         retTemp = 0 # Input must be floating - we can't be near freezing!!
     return round(retTemp,1)
 
-def getCurrentFromVolts(voltage,calibrationOffset):
-
+def getCurrentFromVolts(voltage):
+    calibrationOffset = 0.0232
     if debug_level==DEBUG:
         log("Raw detected voltage:" + str( voltage))
     voltage = abs(voltage) - calibrationOffset
