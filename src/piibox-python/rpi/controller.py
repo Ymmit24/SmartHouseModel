@@ -358,7 +358,7 @@ def getTempFromVolts(voltage):
     retTemp -= kelvinToCentigrade
     if retTemp < 5 or retTemp > 100:
         retTemp = 0 # Input must be floating - we can't be near freezing!!
-    return round(retTemp,1)
+    return round(retTemp,1) #play
 
 # Function to read temperture on second thermistor
 def getTempFromVoltsTwo(voltage):
