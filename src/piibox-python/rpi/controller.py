@@ -306,9 +306,9 @@ def handle_websocket():
     while True:
         try:
             if adc:
-                houseLoad = 12 * getCurrentFromVolts(adc.readVoltage(1))
+                houseLoad = 12 * getCurrentFromVolts(adc.readVoltage(1), 0.0232)
                 intTemp = getTempFromVolts(adc.readVoltage(2))
-                solarFeed = 12 * getCurrentFromVolts(adc.readVoltage(4))
+                solarFeed = 12 * getCurrentFromVolts(adc.readVoltage(4), 1)
                 extTemp =  getTempFromVoltsTwo(adc.readVoltage(3))
                 kitchenTemp =  getTempFromMilliVolts(adc.readVoltage(5))
                 dinningTemp =  getTempFromMilliVolts(adc.readVoltage(6))
@@ -334,6 +334,15 @@ def handle_websocket():
             message = json.dumps(readings)
             if debug_level==TRACE:
                 log("Sending data to websocket" + message)
+            #with myfile.json as f:
+               # f.write(timestamp)
+               # f.write(message)
+
+            #if datetime.now() - lastgraphtime > datetime.minute:
+                # matplotlib example code using data from myfile.json
+               # plt.save('mygraph.png')
+               # lastgraphtime = datetime.now()
+
             wsock.send(message)
             #time.sleep(1) #no point sampling too often - chip can handle up to 3.75 samples per second at full precision, we'll go for 1
             time.sleep(0.5)
@@ -375,8 +384,8 @@ def getTempFromVoltsTwo(voltage):
         retTemp = 0 # Input must be floating - we can't be near freezing!!
     return round(retTemp,1)
 
-def getCurrentFromVolts(voltage):
-    calibrationOffset = 0.0232
+def getCurrentFromVolts(voltage, calibrationOffset):
+
     if debug_level==DEBUG:
         log("Raw detected voltage:" + str( voltage))
     voltage = abs(voltage) - calibrationOffset
