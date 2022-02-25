@@ -37,16 +37,16 @@
        %if action == 'Graph':
      class='active'
        %end
-					><a href="/Graph">Graph</a></li>
+					><a href="/graph">Graph</a></li>
        <li
        %if action == 'log':
      class='active'
        %end
 					><a href="/log">Log</a></li>
 
-			</div>
-			<!--/.nav-collapse -->
-		</div>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
 	   </div>
 	</div>
 </div>
