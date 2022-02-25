@@ -33,7 +33,11 @@
      class='active'
        %end
 					><a href="/sitemap">Sitemap</a></li>
-
+	   <li
+       %if action == 'Graph':
+     class='active'
+       %end
+					><a href="/Graph">Graph</a></li>
        <li
        %if action == 'log':
      class='active'
@@ -43,5 +47,6 @@
 			</div>
 			<!--/.nav-collapse -->
 		</div>
+	   </div>
 	</div>
 </div>
