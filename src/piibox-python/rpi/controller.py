@@ -277,6 +277,12 @@ def sitemap():
 def dashboard():
     return{}
 
+# To set up graph page
+@app.route('/graph')
+@view('graph')
+def graph():
+    return{}
+
 # Test to set up a video streat page
 @app.route('/camera')
 @view('camera')
