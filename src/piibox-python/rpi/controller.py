@@ -413,7 +413,7 @@ log('Loglevel is %s '%debug_level)
 server = WSGIServer(("0.0.0.0", 80), app,
                     handler_class=WebSocketHandler)
 log('Starting socket server %s' % server)
-log('Default values of current/ temp are %s %s' % (getCurrentFromVolts(0),getTempFromVolts(0)))
+log('Default values of current/ temp are %s %s' % (getCurrentFromVolts(0,0),getTempFromVolts(0)))
 
 server.serve_forever()
 log('server started to serve forever')
