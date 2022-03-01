@@ -3,6 +3,6 @@
 
 <p>This webpage is an indicative demonstration of energy consumption</p>
 
-<h3><a href="/mygraph.png">Plot1</a></h3>
+
 
 %rebase base title='Graph', action='graph'
