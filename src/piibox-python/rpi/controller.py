@@ -1,6 +1,6 @@
-# ENGD3000 - Final Year Project - 2020/2021
+# ENGD3000 - Final Year Project - 2021/2022
 # Supervisor: Richard Snape
-# Student: Henrik Nyby
+# Student: Timilehin Olusa
 
 # Import libraries
 import os
@@ -338,14 +338,16 @@ def handle_websocket():
                 advance_state(tStep)
 
             message = json.dumps(readings)
-            # with myfile.json as f:
-            # f.write(timestamp)
-            # f.write(message)
+            with myfile.json as f:
+                f.write(timestamp)
+                f.write(message)
 
-            # if datetime.now() - lastgraphtime > datetime.minute:
-            # matplotlib example code using data from myfile.json
-            # plt.save('mygraph.png')
-            # lastgraphtime = datetime.now()
+            if datetime.now() - lastgraphtime > datetime.minute:
+                matplotlib example code using data from myfile.json
+                plt.save('mygraph.png')
+            # plt.savefig('images/plot2.png', format='png')
+                lastgraphtime = datetime.now()
+
             if debug_level==TRACE:
                 log("Sending data to websocket" + message)
             wsock.send(message)
@@ -423,3 +425,33 @@ log('Default values of current/ temp are %s %s' % (getCurrentFromVolts(0,0),getT
 
 server.serve_forever()
 log('server started to serve forever')
+
+# # importing matplotlib module
+# import matplotlib.pyplot as plt
+#
+# # x-axis values
+# x = [5, 2, 9, 4, 7]
+#
+# # Y-axis values
+# y = [10, 5, 8, 4, 2]
+#
+# # Function to plot scatter
+# plt.scatter(x, y)
+#
+# # function to show the plot
+# plt.show()
+
+# import numpy as np
+# import matplotlib.pyplot as plt
+#
+# xData = np.arange(0, 10, 1)
+# yData1 = xData.__pow__(2.0)
+# yData2 = np.arange(15, 61, 5)
+# plt.figure(num=1, figsize=(8, 6))
+# plt.title('Plot 1', size=14)
+# plt.xlabel('x-axis', size=14)
+# plt.ylabel('y-axis', size=14)
+# plt.plot(xData, yData1, color='b', linestyle='--', marker='o', label='y1 data')
+# plt.plot(xData, yData2, color='r', linestyle='-', label='y2 data')
+# plt.legend(loc='upper left')
+# plt.savefig('images/plot1.png', format='png')
