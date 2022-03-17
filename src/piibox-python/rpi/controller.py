@@ -338,7 +338,7 @@ def handle_websocket():
                 advance_state(tStep)
 
             # message = json.dumps(readings)
-            # with myfile.json as f:
+            # with open('myfile.json','w+') as f:
             #     f.write(timestamp)
             #     f.write(message)
             #
