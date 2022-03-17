@@ -4,7 +4,7 @@ import matplotlib.dates as mdates
 
 import json
 import urllib.request, json
-with urllib.request.urlopen("https://api.carbonintensity.org.uk/intensity/date") as url:
+with urllib.request.urlopen("https://api.carbonintensity.org.uk/intensity/2022-03-17T12:00Z/pt24h") as url:
     data = json.loads(url.read().decode())
    # print(data)
     print(type(data))

@@ -417,32 +417,48 @@ log('Default values of current/ temp are %s %s' % (getCurrentFromVolts(0,0),getT
 server.serve_forever()
 log('server started to serve forever')
 
-# # importing matplotlib module
-# import matplotlib.pyplot as plt
-#
-# # x-axis values
-# x = [5, 2, 9, 4, 7]
-#
-# # Y-axis values
-# y = [10, 5, 8, 4, 2]
-#
-# # Function to plot scatter
-# plt.scatter(x, y)
-#
-# # function to show the plot
-# plt.show()
+#JSON test
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.dates as mdates
+log('json test start')
+# for python 3
+# import json
+# import urllib.request, json
+# with urllib.request.urlopen("https://api.carbonintensity.org.uk/intensity/2022-03-17T12:00Z/pt24h") as url:
+#     data = json.loads(url.read().decode())
 
-# import numpy as np
-# import matplotlib.pyplot as plt
-#
-# xData = np.arange(0, 10, 1)
-# yData1 = xData.__pow__(2.0)
-# yData2 = np.arange(15, 61, 5)
-# plt.figure(num=1, figsize=(8, 6))
-# plt.title('Plot 1', size=14)
-# plt.xlabel('x-axis', size=14)
-# plt.ylabel('y-axis', size=14)
-# plt.plot(xData, yData1, color='b', linestyle='--', marker='o', label='y1 data')
-# plt.plot(xData, yData2, color='r', linestyle='-', label='y2 data')
-# plt.legend(loc='upper left')
-# plt.savefig('images/plot1.png', format='png')
+import urllib, json
+url = "https://api.carbonintensity.org.uk/intensity/2022-03-17T12:00Z/pt24h"
+response = urllib.urlopen(url)
+data = json.loads(response.read())
+log('api call')
+raw_data = data['data']
+timestamp=[]
+actual=[]
+forecast=[]
+log('forecast')
+for row in raw_data:
+    timestamp.append(np.datetime64(row['from']))
+    intensity1 = row['intensity']
+    actual.append(intensity1['actual'])
+
+    intensity2 = row['intensity']
+    forecast.append(intensity2['forecast'])
+log('for loop in rawdata')
+fig, ax = plt.subplots(1,1)
+ax.plot(timestamp, actual, color='b', linestyle='-', marker='o', label='y1 data')
+ax.plot(timestamp, forecast, color='r', linestyle='-', marker='o', label='y2 data')
+
+ax.xaxis.set_major_formatter(mdates.DateFormatter('%d-%m %H:%M'))
+
+for label in ax.get_xticklabels(which='major'):
+    label.set(rotation=30, horizontalalignment='right')
+
+plt.grid(True)
+plt.show()
+plt.savefig('static/img/day1.png')
+log('saved figure')
+# message = json.dumps(data)
+# with open('myfile.json','w+') as f:
+#     f.write(message)
