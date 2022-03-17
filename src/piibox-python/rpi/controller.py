@@ -337,16 +337,7 @@ def handle_websocket():
                 tStep%=len(states)
                 advance_state(tStep)
 
-            # message = json.dumps(readings)
-            # with open('myfile.json','w+') as f:
-            #     f.write(timestamp)
-            #     f.write(message)
-            #
-            # if datetime.now() - lastgraphtime > datetime.minute:
-            #     matplotlib example code using data from myfile.json
-            #     plt.save('mygraph.png',format='png')
-            # # plt.savefig('images/plot2.png', format='png')
-            #     lastgraphtime = datetime.now()
+            message = json.dumps(readings)
 
             if debug_level==TRACE:
                 log("Sending data to websocket" + message)
