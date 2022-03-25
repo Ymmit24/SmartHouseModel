@@ -12,7 +12,7 @@ plt.plot(xData, yData1, color='b', linestyle='--', marker='o', label='y1 data')
 plt.plot(xData, yData2, color='r', linestyle='-', label='y2 data')
 plt.legend(loc='upper left')
 plt.show()
-plt.savefig('static/img/plot1.png')
+plt.savefig('static/plot1.png')
 
 #from matplotlib import pyplot as plt
 # x = [3, 6, 9]
