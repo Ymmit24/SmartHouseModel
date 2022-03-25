@@ -27,6 +27,8 @@ from geventwebsocket.exceptions import WebSocketError
 import json # Use json to encode data sent via websocket
 import random as r
 
+import CO2data
+
 # Debug scaffolding code
 TRACE = 1
 DEBUG = 2
@@ -311,6 +313,7 @@ def handle_websocket():
 
     while True:
         try:
+            CO2data.intensity_plot()
             if adc:
                 houseLoad = 12 * getCurrentFromVolts(adc.readVoltage(1),0.0232)
                 intTemp = getTempFromVolts(adc.readVoltage(2))
