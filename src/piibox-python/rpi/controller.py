@@ -82,8 +82,8 @@ logfile = os.path.join(cwd,'..','..','..','logs','log.txt')
 pfio.init()
 
 ## NOTE TO HENRIK : RICHARD ADDED 2021_03_19 @ 19:45 to fix the state reading
-boards = [pfio.PiFaceDigital(0),pfio.PiFaceDigital(1)]
-#boards = [pfio.PiFaceDigital(0),pfio.PiFaceDigital(1),pfio.PiFaceDigital(2)]
+#boards = [pfio.PiFaceDigital(0),pfio.PiFaceDigital(1)]
+boards = [pfio.PiFaceDigital(0),pfio.PiFaceDigital(1),pfio.PiFaceDigital(2)]
 
 # Simple wrapper (object) for digital read and write of piface outputs
 class localLEDwrapper(object):
@@ -147,7 +147,9 @@ devices= {"DownHeat":localLEDwrapper(0,0),
           "Bed3Light":localLEDwrapper(4,1),
           "BathroomLight":localLEDwrapper(5,1),
           "Bed2Light":localLEDwrapper(6,1),
-          "Bed1Light":localLEDwrapper(7,1)
+          "Bed1Light":localLEDwrapper(7,1),
+          "BatteryRelay":localLEDwrapper(0,2),
+          "LoadRelay":localLEDwrapper(1,2)
           }
 
 # Set up static file handler
