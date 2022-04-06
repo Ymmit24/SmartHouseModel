@@ -1,7 +1,7 @@
 <h2>Timilehin in charge 2021/22</h2>
 <h3>Energy modes</h3>
 <table style="width:100%;margin-top:2em;margin-bottom:2em;padding:1em;">
-<tr><th>Auto Mode</th><th>Turn off all</th><th>CO2 Mode</th><th>SolarPV Mode</th><th>Grid Mode</th></tr>
+<tr><th>Auto Mode</th><th>Turn off all</th><th>BatteryChargefromGrid Mode</th><th>LoadSupplyfromBattery Mode</th></tr>
 <tr>
 <td style="text-align:left">
   <a class="btn {{ 'active' if deviceAuto == 1 else ''}}" href="/action?device=AutoMode&value=1">On</a> |
@@ -11,14 +11,11 @@
   <a class="btn {{ 'active' if deviceAllOff == 0 else ''}}" href="/action?device=AllOff&value=0">Off</a></td>
  <!-- Energy modes -->
 <td style="text-align:left">
-  <a class="btn {{ 'active' if deviceAllOff == 1 else ''}}" href="/action?device=AllOff&value=1">On</a> |
-  <a class="btn {{ 'active' if deviceAllOff == 0 else ''}}" href="/action?device=AllOff&value=0">Off</a></td>
+  <a class="btn {{ 'active' if device11 == 1 else ''}}" href="/action?device=GridCharged&value=1">On</a> |
+  <a class="btn {{ 'active' if device11 == 0 else ''}}" href="/action?device=GridCharged&value=0">Off</a></td>
 <td style="text-align:left">
-  <a class="btn {{ 'active' if device11 == 1 else ''}}" href="/action?device=SolarPV&value=1">On</a> |
-  <a class="btn {{ 'active' if device11 == 0 else ''}}" href="/action?device=SolarPV&value=0">Off</a></td>
-<td style="text-align:left">
-  <a class="btn {{ 'active' if device12 == 1 else ''}}" href="/action?device=Grid&value=1">On</a> |
-  <a class="btn {{ 'active' if device12 == 0 else ''}}" href="/action?device=Grid&value=0">Off</a></td>
+  <a class="btn {{ 'active' if device12 == 1 else ''}}" href="/action?device=BatterySupplied&value=1">On</a> |
+  <a class="btn {{ 'active' if device12 == 0 else ''}}" href="/action?device=BatterySupplied&value=0">Off</a></td>
 </tr>
 </table>
 

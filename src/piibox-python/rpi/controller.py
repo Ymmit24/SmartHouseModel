@@ -142,14 +142,14 @@ devices= {"DownHeat":localLEDwrapper(0,0),
           "DiningLight":localLEDwrapper(7,0),
           "UpHeat":localLEDwrapper(0,1),
           "HotWater":localLEDwrapper(1,1),
-          "Grid": localLEDwrapper(2,1),
-          "SolarPV": localLEDwrapper(3,1),
+  #        "Grid": localLEDwrapper(2,1),
+  #        "SolarPV": localLEDwrapper(3,1),
           "Bed3Light":localLEDwrapper(4,1),
           "BathroomLight":localLEDwrapper(5,1),
           "Bed2Light":localLEDwrapper(6,1),
           "Bed1Light":localLEDwrapper(7,1),
-          "BatteryRelay":localLEDwrapper(0,2),
-          "LoadRelay":localLEDwrapper(1,2)
+          "GridCharged":localLEDwrapper(0,2),
+          "BatterySupplied":localLEDwrapper(1,2)
           }
 
 # Set up static file handler
@@ -173,15 +173,15 @@ def home():
     Bed1State = devices["Bed1Light"].current()
     Bed2State = devices["Bed2Light"].current()
     Bed3State = devices["Bed3Light"].current()
-    SolarPVState = devices["SolarPV"].current()
-    GridState = devices["Grid"].current()
+    BatteryCharge = devices["GridCharged"].current()
+    HomeSupply = devices["BatterySupplied"].current()
     log('All except new accessed')
     SupplyState = devices["HomeSupplyRelay"].current()   #17/02
     log('All current states read')
     return_values = dict(device0 = UpHeatState, device1 = DownHeatState, device2 = KitchenLightState,
                 device3 = Dummy1State, device4 = LivingLightState, device5 = DiningLightState,
                 device6 = BathroomLightState, device7 = Bed1State, device8 = Bed2State, device9 = Bed3State,
-                device10 = HotWaterState, device11 = SolarPVState, device12 = GridState, deviceAuto=auto_mode,
+                device10 = HotWaterState, device11 = BatteryCharge, device12 = HomeSupply, deviceAuto=auto_mode,
                 deviceAllOff=all_off, device13=SupplyState)
     log(return_values)
     return return_values    #17/02
@@ -315,7 +315,18 @@ def handle_websocket():
 
     while True:
         try:
-            CO2data.intensity_plot()
+            #CO2data.intensity_plot()
+            #log('done the plot')
+            # CO2_readings = json.dumps(CO2data.process_data(,))
+            # with open('json_data.json', 'w') as plotfile:
+            #     json.dump(CO2_readings, plotfile)
+            # if CO2data.forecast >= 100:
+            #     device11 = 1
+            # else:
+            #     device11 = 0
+            # if switch button high:
+            #     relay is low
+
             if adc:
                 houseLoad = 12 * getCurrentFromVolts(adc.readVoltage(1),0.0232)
                 intTemp = getTempFromVolts(adc.readVoltage(2))
