@@ -8,9 +8,9 @@ import urllib, json
 
 class CO2data:
 
-    url = "https://api.carbonintensity.org.uk/intensity/date"
+    #url = "https://api.carbonintensity.org.uk/intensity/date"
     def getData(self):
-        response = urllib.urlopen(url)
+        response = urllib.urlopen(self.url)
         data = json.loads(response.read())
         raw_data = data['data']
         return data
@@ -47,6 +47,9 @@ class CO2data:
         fig.savefig('/usr/local/projects/piiboxweb/src/piibox-python/rpi/static/day1.png')
 
 #log('saved figure')
+
+    def __init__(self):
+        self.url = "https://api.carbonintensity.org.uk/intensity/date"
 
 if __name__ == '__main__':
     this_instance = CO2data()

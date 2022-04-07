@@ -27,7 +27,7 @@ from geventwebsocket.exceptions import WebSocketError
 import json # Use json to encode data sent via websocket
 import random as r
 
-import CO2data
+from CO2data import CO2data
 
 # Debug scaffolding code
 TRACE = 1
@@ -39,6 +39,7 @@ debug_level = WARNING    # Set debug level
 
 # Default_app.push()
 app = Bottle()
+data_instance = CO2data()
 
 # Set up path to views (current working directory)
 cwd = os.path.dirname(__file__)
@@ -316,11 +317,14 @@ def handle_websocket():
     while True:
         try:
             #CO2data.intensity_plot()
-            #log('done the plot')
-            # CO2_readings = json.dumps(CO2data.process_data(,))
-            # with open('json_data.json', 'w') as plotfile:
-            #     json.dump(CO2_readings, plotfile)
-            # if CO2data.forecast >= 100:
+            log('currently in the while loop')
+
+            CO2_readings = json.dumps(data_instance.getData())
+            log('done the readings')
+            with open('json_data.json', 'w') as plotfile:
+                json.dump(CO2_readings, plotfile)
+            log('done the open')
+            #if CO2data.forecast >= 100:
             #     device11 = 1
             # else:
             #     device11 = 0
