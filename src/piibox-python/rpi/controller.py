@@ -14,7 +14,7 @@ import math
 import pifacedigitalio as pfio
 from pifacedigitalio import NoPiFaceDigitalError
 
-from datetime import datetime
+from datetime import datetime, timedelta
 from bottle import (route, run, view, error,
                     static_file, post, request,
                     default_app,redirect, abort, Bottle)
@@ -36,6 +36,8 @@ WARNING = 3
 ERROR = 4
 NON = 5
 debug_level = WARNING    # Set debug level
+
+
 
 # Default_app.push()
 app = Bottle()
@@ -78,6 +80,8 @@ states=[["DownHeat","Bed1Light","DiningLight","KitchenLight","HotWater"],
 
 # Set path to the log file
 logfile = os.path.join(cwd,'..','..','..','logs','log.txt')
+DATA_PULL_INTERVAL = timedelta(seconds=15)
+app.last_time = datetime.now()
 
 # Initialise PiFace digital I/O hardware on top (HAT)
 pfio.init()
@@ -179,6 +183,7 @@ def home():
     log('All except new accessed')
     SupplyState = devices["HomeSupplyRelay"].current()   #17/02
     log('All current states read')
+    global device12
     return_values = dict(device0 = UpHeatState, device1 = DownHeatState, device2 = KitchenLightState,
                 device3 = Dummy1State, device4 = LivingLightState, device5 = DiningLightState,
                 device6 = BathroomLightState, device7 = Bed1State, device8 = Bed2State, device9 = Bed3State,
@@ -314,22 +319,33 @@ def handle_websocket():
         log('Expected WebSocket request.  Got something else on /webwocket/...')
         abort(400, 'Expected WebSocket request.')
 
+
     while True:
         try:
-            #CO2data.intensity_plot()
-            log('currently in the while loop')
 
-            CO2_readings = json.dumps(data_instance.getData())
-            log('done the readings')
-            with open('json_data.json', 'w') as plotfile:
-                json.dump(CO2_readings, plotfile)
-            log('done the open')
-            #if CO2data.forecast >= 100:
-            #     device11 = 1
-            # else:
-            #     device11 = 0
-            # if switch button high:
-            #     relay is low
+            log('currently in the while loop')
+            if datetime.now() > app.last_time + DATA_PULL_INTERVAL:
+                app.last_time = datetime.now()
+                CO2_readings = json.dumps(data_instance.getData())
+                log('done the readings')
+
+                filename="json_data.json"
+                desired_dir = "/usr/local/projects/piiboxweb/src/piibox-python/rpi"
+                full_path = os.path.join(desired_dir, filename)
+                log('saving the data file'+full_path)
+                with open(full_path, 'w+') as f:
+                    json_string = json.dumps(CO2_readings)
+                    f.write(json_string)
+                log('file saved')
+
+                # for intensity in CO2_readings:
+                #     if forecast >= 100:
+                #         device12 = 1
+
+                # else:
+                #     device11 = 0
+                # if switch button high:
+                #     relay is low
 
             if adc:
                 houseLoad = 12 * getCurrentFromVolts(adc.readVoltage(1),0.0232)
