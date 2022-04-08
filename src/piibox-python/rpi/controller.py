@@ -37,8 +37,6 @@ ERROR = 4
 NON = 5
 debug_level = WARNING    # Set debug level
 
-
-
 # Default_app.push()
 app = Bottle()
 data_instance = CO2data()
@@ -80,7 +78,7 @@ states=[["DownHeat","Bed1Light","DiningLight","KitchenLight","HotWater"],
 
 # Set path to the log file
 logfile = os.path.join(cwd,'..','..','..','logs','log.txt')
-DATA_PULL_INTERVAL = timedelta(seconds=15)
+DATA_PULL_INTERVAL = timedelta(seconds=30)
 app.last_time = datetime.now()
 
 # Initialise PiFace digital I/O hardware on top (HAT)
@@ -332,14 +330,16 @@ def handle_websocket():
                 filename="json_data.json"
                 desired_dir = "/usr/local/projects/piiboxweb/src/piibox-python/rpi"
                 full_path = os.path.join(desired_dir, filename)
-                log('saving the data file'+full_path)
+                log('saving the data file'+ full_path)
                 with open(full_path, 'w+') as f:
-                    json_string = json.dumps(CO2_readings)
+                    json_string = json.dumps(CO2_readings, sort_keys= True)
                     f.write(json_string)
                 log('file saved')
 
-                # for intensity in CO2_readings:
+                # for intensity in json_string:
+                #     log('for loop works')
                 #     if forecast >= 100:
+                #         log('i can read forecast')
                 #         device12 = 1
 
                 # else:

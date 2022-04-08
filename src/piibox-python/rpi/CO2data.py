@@ -49,7 +49,7 @@ class CO2data:
 #log('saved figure')
 
     def __init__(self):
-        self.url = "https://api.carbonintensity.org.uk/intensity/date"
+        self.url = "https://api.carbonintensity.org.uk/intensity"
 
 if __name__ == '__main__':
     this_instance = CO2data()
