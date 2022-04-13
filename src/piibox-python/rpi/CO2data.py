@@ -6,7 +6,7 @@ import matplotlib.dates as mdates
 
 import urllib, json
 
-class CO2data:
+class CO2dataClass:
 
     #url = "https://api.carbonintensity.org.uk/intensity/date"
     def getData(self):
@@ -52,7 +52,7 @@ class CO2data:
         self.url = "https://api.carbonintensity.org.uk/intensity"
 
 if __name__ == '__main__':
-    this_instance = CO2data()
+    this_instance = CO2dataClass()
     d = this_instance.getData()
     t,a,f = this_instance.process_data(d)
     intensity_plot = this_instance.plot(t,a,f)

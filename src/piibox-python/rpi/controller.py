@@ -27,7 +27,8 @@ from geventwebsocket.exceptions import WebSocketError
 import json # Use json to encode data sent via websocket
 import random as r
 
-from CO2data import CO2data
+from CO2data import CO2dataClass
+#from CO2dataClass import raw_data
 
 # Debug scaffolding code
 TRACE = 1
@@ -39,7 +40,7 @@ debug_level = WARNING    # Set debug level
 
 # Default_app.push()
 app = Bottle()
-data_instance = CO2data()
+data_instance = CO2dataClass()
 
 # Set up path to views (current working directory)
 cwd = os.path.dirname(__file__)
@@ -78,7 +79,7 @@ states=[["DownHeat","Bed1Light","DiningLight","KitchenLight","HotWater"],
 
 # Set path to the log file
 logfile = os.path.join(cwd,'..','..','..','logs','log.txt')
-DATA_PULL_INTERVAL = timedelta(seconds=30)
+DATA_PULL_INTERVAL = timedelta(seconds=5)
 app.last_time = datetime.now()
 
 # Initialise PiFace digital I/O hardware on top (HAT)
@@ -181,7 +182,6 @@ def home():
     log('All except new accessed')
     SupplyState = devices["HomeSupplyRelay"].current()   #17/02
     log('All current states read')
-    global device12
     return_values = dict(device0 = UpHeatState, device1 = DownHeatState, device2 = KitchenLightState,
                 device3 = Dummy1State, device4 = LivingLightState, device5 = DiningLightState,
                 device6 = BathroomLightState, device7 = Bed1State, device8 = Bed2State, device9 = Bed3State,
@@ -324,28 +324,39 @@ def handle_websocket():
             log('currently in the while loop')
             if datetime.now() > app.last_time + DATA_PULL_INTERVAL:
                 app.last_time = datetime.now()
+
                 CO2_readings = json.dumps(data_instance.getData())
                 log('done the readings')
 
                 filename="json_data.json"
                 desired_dir = "/usr/local/projects/piiboxweb/src/piibox-python/rpi"
                 full_path = os.path.join(desired_dir, filename)
-                log('saving the data file'+ full_path)
+                log('saving the data file' + full_path)
                 with open(full_path, 'w+') as f:
-                    json_string = json.dumps(CO2_readings, sort_keys= True)
+                    json_string = json.dumps(CO2_readings)
                     f.write(json_string)
                 log('file saved')
 
-                # for intensity in json_string:
+                convCO2_readings = json.loads(CO2_readings)
+                log('i can convert')
+
+                # for intensity_dict in convCO2_readings:
                 #     log('for loop works')
+                #     log(intensity_dict)
+
+                if 'data' in convCO2_readings:
+                    log('data is in convCO2_readings')
+                    for intensity_dict in convCO2_readings['data']:
+                        log(intensity_dict)
+                        forecast = int(intensity_dict[u'intensity'][u'forecast'])
+                    log('forecast')
+                    log(forecast)
+                #    log(list[0]["data"])
+                #   forecast = int(intensity_dict['intensity']['forecast'])
+                #    log(forecast)
                 #     if forecast >= 100:
                 #         log('i can read forecast')
-                #         device12 = 1
-
-                # else:
-                #     device11 = 0
-                # if switch button high:
-                #     relay is low
+                #         devices['device12'].turn_on()
 
             if adc:
                 houseLoad = 12 * getCurrentFromVolts(adc.readVoltage(1),0.0232)
