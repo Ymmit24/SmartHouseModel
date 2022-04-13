@@ -358,7 +358,7 @@ def handle_websocket():
             if adc:
                 houseLoad = 12 * getCurrentFromVolts(adc.readVoltage(1),0.0232)
                 intTemp = getTempFromVolts(adc.readVoltage(2))
-                solarFeed = 12 * getCurrentFromVolts(adc.readVoltage(4),0.01932)
+                solarFeed = 120 * getCurrentFromVolts(adc.readVoltage(4),0.01932)
                 extTemp =  getTempFromVoltsTwo(adc.readVoltage(3))
                 kitchenTemp =  getTempFromMilliVolts(adc.readVoltage(5))
                 dinningTemp =  getTempFromMilliVolts(adc.readVoltage(6))
