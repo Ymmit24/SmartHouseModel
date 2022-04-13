@@ -152,7 +152,7 @@ devices= {"DownHeat":localLEDwrapper(0,0),
           "BathroomLight":localLEDwrapper(5,1),
           "Bed2Light":localLEDwrapper(6,1),
           "Bed1Light":localLEDwrapper(7,1),
-          "GridCharged":localLEDwrapper(0,2),
+          "GridCharged":localLEDwrapper(0,2),   #in order to use onboard relays
           "BatterySupplied":localLEDwrapper(1,2)
           }
 
@@ -340,10 +340,6 @@ def handle_websocket():
                 convCO2_readings = json.loads(CO2_readings)
                 log('i can convert')
 
-                # for intensity_dict in convCO2_readings:
-                #     log('for loop works')
-                #     log(intensity_dict)
-
                 if 'data' in convCO2_readings:
                     log('data is in convCO2_readings')
                     for intensity_dict in convCO2_readings['data']:
@@ -351,12 +347,13 @@ def handle_websocket():
                         forecast = int(intensity_dict[u'intensity'][u'forecast'])
                     log('forecast')
                     log(forecast)
-                #    log(list[0]["data"])
-                #   forecast = int(intensity_dict['intensity']['forecast'])
-                #    log(forecast)
-                #     if forecast >= 100:
-                #         log('i can read forecast')
-                #         devices['device12'].turn_on()
+                    if forecast >= 100:
+                        log('i can read forecast')
+                        devices["BatterySupplied"].turn_on()
+                        log('battery supply is turned on')
+                    if forecast <200:
+                        devices["GridCharged"].turn_on()
+                        log('grid charge is turned on')
 
             if adc:
                 houseLoad = 12 * getCurrentFromVolts(adc.readVoltage(1),0.0232)
