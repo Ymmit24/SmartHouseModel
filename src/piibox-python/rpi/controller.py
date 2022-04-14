@@ -28,7 +28,6 @@ import json # Use json to encode data sent via websocket
 import random as r
 
 from CO2data import CO2dataClass
-#from CO2dataClass import raw_data
 
 # Debug scaffolding code
 TRACE = 1
@@ -63,23 +62,48 @@ all_off = True
 tStep=0
 
 # Define auto_mode sequential schedule
-states=[["DownHeat","Bed1Light","DiningLight","KitchenLight","HotWater"],
-         ["HotWater","Bed1Light"],
-         ["DiningLight","KitchenLight"],
-         [],
-         ["DownHeat"],
-         [],
-         [],
-         ["UpHeat"],
-         ["DownHeat","LivingLight","DiningLight","KitchenLight"],
-         [],
-         ["Bed1Light","Bed2Light","Bed3Light"],
-         ["DownHeat","LivingLight","Bed1Light","Bed2Light","Bed3Light","BathroomLight"],
-         ["Bed1Light","BathroomLight"]]
+# states=[["DownHeat","Bed1Light","DiningLight","KitchenLight","HotWater"],
+#          ["HotWater","Bed1Light"],
+#          ["DiningLight","KitchenLight"],
+#          [],
+#          ["DownHeat"],
+#          [],
+#          [],
+#          ["UpHeat"],
+#          ["DownHeat","LivingLight","DiningLight","KitchenLight"],
+#          [],
+#          ["Bed1Light","Bed2Light","Bed3Light"],
+#          ["DownHeat","LivingLight","Bed1Light","Bed2Light","Bed3Light","BathroomLight"],
+#          ["Bed1Light","BathroomLight"]]
+
+states=[["UpHeat"],
+        ["UpHeat","HotWater","Bed1Light","Bed2Light","Bed3Light",],
+        ["BathroomLight","DownHeat"],
+        ["LivingLight","DiningLight","KitchenLight"],
+        ["LivingLight"],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        [],
+        ["UpHeat","DownHeat","HotWater"],
+        ["LivingLight","KitchenLight"],
+        ["LivingLight","DiningLight","KitchenLight","DownHeat"],
+        ["UpHeat","LivingLight","KitchenLight"],
+        ["UpHeat","LivingLight","Bed2Light","BathroomLight"],
+        ["UpHeat","LivingLight","Bed1Light","Bed3Light","BathroomLight"],
+        [],
+        [],
+        [],
+        [],
+        [],
+        []]
 
 # Set path to the log file
 logfile = os.path.join(cwd,'..','..','..','logs','log.txt')
-DATA_PULL_INTERVAL = timedelta(seconds=5)
+DATA_PULL_INTERVAL = timedelta(minutes=30)
 app.last_time = datetime.now()
 
 # Initialise PiFace digital I/O hardware on top (HAT)
@@ -347,11 +371,11 @@ def handle_websocket():
                         forecast = int(intensity_dict[u'intensity'][u'forecast'])
                     log('forecast')
                     log(forecast)
-                    if forecast >= 100:
+                    if forecast >= 130:         #CO2 emissions no longer low
                         log('i can read forecast')
                         devices["BatterySupplied"].turn_on()
                         log('battery supply is turned on')
-                    if forecast <200:
+                    if forecast < 180:          #C02 emissions below moderate
                         devices["GridCharged"].turn_on()
                         log('grid charge is turned on')
 
